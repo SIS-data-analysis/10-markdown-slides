@@ -11,6 +11,12 @@ Our Markdown journey continues as we look at how to create slide decks for prese
 - Yihui Xi has great stuff on all things markdown. [Chs 4 and 7 on presentations](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html) are good for this week.
 - *Make sure you have access to your Presentation 1 materials.* We'll work on rebuilding those presentations in markdown.
 
+## Examples for our consideration
+- `downcuteEX.html` shows the `downcute` document and serves as a nice bridge from last week to this week
+- `xaringanINFO.html` shows the `xaringan` format
+- See [my book presentation repository](https://github.com/austin-hart-pols/qualitycontrol) for a customized `xaringan` example.
+
+
 
 ## Assessment
 - Presentation 2: submit electronically via Canvas April 7.
