@@ -8,9 +8,9 @@ Our Markdown journey continues as we look at how to create slide decks for prese
   - `tinytex`
   - `rmdformats`
   - `xaringan`
-- Yihui Xi has great stuff on all things markdown. [Ch 4 on presentations](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html) is good for this week.
+- Yihui Xi has great stuff on all things markdown. [Chs 4 and 7 on presentations](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html) are good for this week.
 - *Make sure you have access to your Presentation 1 materials.* We'll work on rebuilding those presentations in markdown.
 
 
 ## Assessment
-- Presentation 2: submit electronically via Canvas April 4.
+- Presentation 2: submit electronically via Canvas April 7.
