@@ -167,8 +167,11 @@ to guide you through a single point.
 ```
 
 # Other markdown stuff
-A few quick reminders about `markdown` based on questions from the past week:
-- *Unique code chunk names*. You don't have to name your code chunks. If you do, they all need different names.
-- *Default working directory*. The folder containing your `.Rmd` file is your default directory when you `knit`. If your data and other materials are in the same spot, no need to `setwd`.
+A few quick reminders about `markdown` based on questions from the past week:  
+
+- *Unique code chunk names*. You don't have to name your code chunks. If you do, they all need different names.  
+
+- *Default working directory*. The folder containing your `.Rmd` file is your default directory when you `knit`. If your data and other materials are in the same spot, no need to `setwd`.  
+
 - *Knitr effectively runs its own R session*. Even if you attach `haven`, for example, in your console, it won't be there when you `knit` a markdown document. I recommend loading these packages (and importing data) in your setup chunk.
 
