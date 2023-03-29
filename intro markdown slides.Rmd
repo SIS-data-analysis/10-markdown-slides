@@ -14,31 +14,33 @@ output:
 
 
 ```{r setup, include=FALSE}
-library(knitr)
-library(rmdformats)
+## Libraries
+  library(knitr)
+  library(rmdformats)
+
 ## Global options
-options(max.print = "75")
 knitr::opts_chunk$set(
   echo = FALSE, cache = FALSE, prompt = FALSE,
   tidy = FALSE, comment = NA,
   message = FALSE, warning = FALSE
 )
-opts_knit$set(width = 75)
 ```
 
-I taught myself `R Markdown` because I needed a better tool for creating presentations. I was sick of using `R` for my data work and a separate software (and programming language) for creating simple slide decks. The endless churn of exporting, moving, and changing visualizations was awful. So I started creating `ioslides`, `beamer`, and `xaringan` presentations in `R Markdown` instead. 
+# Why bother with Markdown?
 
-The `Markdown` world is perfect for the data analyst who has something to say (and who uses lots of visualizations to say it). It lets you put analysis and presentation in the same workflow. It makes the work of updating, tweaking, and scaling your work a snap.
+I taught myself `R Markdown` because I needed a better tool for creating presentations. I was sick of using `R` for my data work and a separate software and programming language for creating slides. The endless churn of exporting, moving, and changing visualizations was awful. So I started creating `ioslides`, `beamer`, and `xaringan` presentations in `R Markdown` instead. 
 
-What I offer here is a very simple intro to a few styles of presentations. There's so much more out there. [Yihui Xie's markdown book](https://bookdown.org/yihui/rmarkdown/) is an excellent starter kit.^[See especially Chapters 4, 7, and 9.] 
+The `Markdown` world is perfect for the data analyst who has something to say. It lets you pull analysis and presentation into a single workflow, and it makes the task of updating, tweaking, and scaling your work a snap.
+
+What I offer here is a very simple intro to two styles of presentation. There's so much more out there. [Yihui Xie's markdown book](https://bookdown.org/yihui/rmarkdown/) is an excellent starter kit.^[See especially Chapters 4, 7, and 9.] 
 
 # ioslides presentations
 
-`ioslides` offers the simplest space for creating presentations. Simply specify `ioslides_presentation` output in the document `YAML`. Then define your `setup` chunk, and proceed to creating your slides.
+`ioslides` offers the simplest space for creating presentations. Just specify `ioslides_presentation` output in the document `YAML`. Then define your `setup` chunk, and proceed to creating your slides.
 
 ## YAML options
 
-The YAML metadata requires that you specify the output type. Here we specify `ioslides_presentation`. This will create an `html` document containing your presentation. I also specify widescreen as baseline. 
+The YAML metadata requires that you specify the output type. Here we have to say that we want slides:  `ioslides_presentation`. This will knit to an `html` document containing your presentation. Note that I also specify widescreen as the baseline. 
 
 ```yaml
 ---
@@ -48,12 +50,11 @@ date: 28 March 2023
 output: 
   ioslides_presentation:
     widescreen: true
-    smaller: true
 ---
 ```
 
 ## Setup chunk
-Your 'setup' chunk is critical in every markdown document. This is where you specify how other code chunks should be handled and set parameters for building your presentation. For slide decks, it's important to set rules about visuals (size, resolution, graphics device, etc).
+Your 'setup' chunk is critical in every markdown document. This is where you specify what you want to happen with your code chunks when you `knit` the document. Of special importance for presentations, this is also a chance to set parameters for the visuals you create (size, resolution, graphics device, etc).
 
 ````r
 `r ''````{r setup, include=F}
@@ -61,7 +62,8 @@ Your 'setup' chunk is critical in every markdown document. This is where you spe
   knitr::opts_chunk$set(
     echo = F, message = F, warning = F,
     fig.width = 4, fig.asp = 0.618, 
-    fig.align = 'center', out.width = "60%"
+    fig.align = 'center', dev='png',
+    out.width = "60%"
   )
 
 # Packages
@@ -71,31 +73,31 @@ Your 'setup' chunk is critical in every markdown document. This is where you spe
 ````
 
 ## Slide basics
-The slide is the key "unit" of a presentation. In `ioslides`, level-1 headers, `#` become new sections and `##` become new content slides.
+The slide is the key "unit" of a presentation. In `ioslides`, level-1 headers, marked by `#`, become new section slides and `##` become new content slides.^[Note that only `#` and `##` headers initiate new slides. `###` headers and beyond just show up as text within a slide.]
 
 
 ```{r, eval=F, echo=T}
 <!-- Basic slide structure -->
 
-# Title, first section
+# Slide for first section
 
-## Title of content slide
+## Separate content slide
 
 > A block quote. It's kind of like my motto.
 
 - Starting a list  
 - So many lists
 
-## Second slide title
+## Another content slide 
+### subtitle on the same slide
 
-### subtitle for emphasis
 1. First step  
 
 2. Second step
 ```
 
 # xaringan presentations
-I prefer `xaringan` for my presentations. `ioslides` is definitely quick and easy, but the formatting options are limited. `xaringan` has so many options for both the deck as a whole and individual slides.
+I prefer `xaringan` for my presentations. `ioslides` is quick and easy, but the formatting options are very limited. `xaringan` has so many options for both the deck as a whole and individual slides.
 
 ## xaringan YAML
 So many options here. Consider:
@@ -118,13 +120,15 @@ output:
 
 I set the `libs` option so that my formatting files (related to the `css`options) don't clutter my directory.
 
+Note that `xaringan` comes with loads of native `css` style options. The chunk above uses `rladies` theme and fonts. Explore the options to see what suits you.
+
 ## xaringan slides
-With `xaringan`, use three dashes, `---`, to create new slides and `#` for slide titles. Note that slides also have classes to choose from.
+With `xaringan`, use three dashes, `---`, to create new slides of any type. Note that slides also have classes to choose from. You can change light vs dark theme (inverse), vertical alignment (top, middle, bottom), and horizontal alignment (left, center, right).
 
 ```{r, eval=F, echo=T}
 <!-- Xaringan structure after setup -->
 
-# Title, first section
+## First slide doesn't need the `---`
 
 - topics covered
 - things you'll like
@@ -136,7 +140,7 @@ class: inverse, middle, right
 ### mess with the options
 
 ---
-# Slide title
+## Title of my new slide
 
 .pull-left[
 ### pulled left
@@ -173,5 +177,5 @@ A few quick reminders about `markdown` based on questions from the past week:
 
 - *Default working directory*. The folder containing your `.Rmd` file is your default directory when you `knit`. If your data and other materials are in the same spot, no need to `setwd`.  
 
-- *Knitr effectively runs its own R session*. Even if you attach `haven`, for example, in your console, it won't be there when you `knit` a markdown document. I recommend loading these packages (and importing data) in your setup chunk.
+- *`knitr` effectively runs its own R session*. Even if you attach `haven` in your console, for example, it won't be active when you `knit` a markdown document. I recommend loading these packages (and importing data) either in your setup chunk or in an invisible chunk immediately after it.
 

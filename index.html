@@ -7,7 +7,7 @@
 
         <meta name="author" content="Austin Hart" />
     
-        <meta name="date" content="2023-03-28" />
+        <meta name="date" content="2023-03-29" />
     
     <title>R markdown for presentations</title>
 
@@ -1554,18 +1554,19 @@ margin-left: 0 !important;
         <div class="Sidebar">
           <div class="SidebarItems" id="toc">
             <ul>
-            <li><a href="#ioslides-presentations" id="toc-ioslides-presentations"><span class="toc-section-number">1</span> ioslides presentations</a>
+            <li><a href="#why-bother-with-markdown" id="toc-why-bother-with-markdown"><span class="toc-section-number">1</span> Why bother with Markdown?</a></li>
+            <li><a href="#ioslides-presentations" id="toc-ioslides-presentations"><span class="toc-section-number">2</span> ioslides presentations</a>
             <ul>
-            <li><a href="#yaml-options" id="toc-yaml-options"><span class="toc-section-number">1.1</span> YAML options</a></li>
-            <li><a href="#setup-chunk" id="toc-setup-chunk"><span class="toc-section-number">1.2</span> Setup chunk</a></li>
-            <li><a href="#slide-basics" id="toc-slide-basics"><span class="toc-section-number">1.3</span> Slide basics</a></li>
+            <li><a href="#yaml-options" id="toc-yaml-options"><span class="toc-section-number">2.1</span> YAML options</a></li>
+            <li><a href="#setup-chunk" id="toc-setup-chunk"><span class="toc-section-number">2.2</span> Setup chunk</a></li>
+            <li><a href="#slide-basics" id="toc-slide-basics"><span class="toc-section-number">2.3</span> Slide basics</a></li>
             </ul></li>
-            <li><a href="#xaringan-presentations" id="toc-xaringan-presentations"><span class="toc-section-number">2</span> xaringan presentations</a>
+            <li><a href="#xaringan-presentations" id="toc-xaringan-presentations"><span class="toc-section-number">3</span> xaringan presentations</a>
             <ul>
-            <li><a href="#xaringan-yaml" id="toc-xaringan-yaml"><span class="toc-section-number">2.1</span> xaringan YAML</a></li>
-            <li><a href="#xaringan-slides" id="toc-xaringan-slides"><span class="toc-section-number">2.2</span> xaringan slides</a></li>
+            <li><a href="#xaringan-yaml" id="toc-xaringan-yaml"><span class="toc-section-number">3.1</span> xaringan YAML</a></li>
+            <li><a href="#xaringan-slides" id="toc-xaringan-slides"><span class="toc-section-number">3.2</span> xaringan slides</a></li>
             </ul></li>
-            <li><a href="#other-markdown-stuff" id="toc-other-markdown-stuff"><span class="toc-section-number">3</span> Other markdown stuff</a></li>
+            <li><a href="#other-markdown-stuff" id="toc-other-markdown-stuff"><span class="toc-section-number">4</span> Other markdown stuff</a></li>
             </ul>
           </div>
           <div data-position="sidebar:post-end" class="InjectedComponents"><div class="dark-theme-toggler"><div class="toggle checked"><div class="toggle-track"><div class="toggle-track-check"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAABlJJREFUWAm1V3tsFEUcntnXvXu0tBWo1ZZHihBjCEWqkHiNaMLDRKOtQSKaiCFKQtS/SbxiFCHGCIkmkBSMwZhQNTFoQZD0DFiwtCDFAkdDqBBBKFj63rvdnfH7zfVo5aFBj0l2Z/dm5vd98/0es8dYjlpr62azufnDQNZcU1PciMfjWvb9rvZSMk4Ayfb36pLH13189GC8LAtIRLLPt+pzwrCuLq4ISEv/gHmitrAwfPbEkXc/ad4dL6iujrvyX0jcitgd/yZlZqftP6995Mr5TVLa22Tn8XVX2g/XLSRjUu7Q79jonS7I7hS7/0oOb5VyqF52n98oj7esXX07EjlxwXWisRmSnm3b29TTM8iYrjmFBWExubxwY/uhNas4r/WySl1fc5cetDMd7ydl+lMJJRw5WC8ud62Xx5rfepzwxgZmbhUYNS5Stvsj4yo2GXJEFBVHWDBkfdbR9HpYBaaUajDnBLKKpl1xRKYcgGtMCqEzTaSnThk/SQT0uJqTqFNBmXMCsZE48DzRZRMBRjv1GHNdk3HBImF9ZUvTyxM40pMKVc4JZBXQOLOFoDeKSxdp6HIQcO4rjYT9fn0pjbz9GLt7BAAODmjSVReXUMFzNW5x5vfxp2mIxZjIuQKJxAmFa+is2DQJJQ0JyBVExNOYcJnPxx/6/utnijmP555ALEagKAGGnGn64QORBjARcIA/yJk7JMJBLRrNtybTvH88KGjCf2jK86bhzmMcwDKFZEQvbIhxFYhChoMWMzU2iWznlIBEVJOsP+1bdX/ALx9l7jApADeDAEcMkE90JnUmmGl4USKQ0xhoW3JB5XY0YrxYWhLwMZZypUyjDGH35AbNwgUGiFBPpuGbHCpAOV1ZGXf2f/taftAv31DyeymN2d1IhAFAwTOmnzF/kKcdh3me7CYCOVNgycju84u8DeVlwfFq9/ZlTfldYrMUjOlrkjkD+rU+WzCROkcEchIDHR011syZW9JHD7y07N6JvhWMpz3pugaTkB6lWFVCKkhck0zzeMp2utq+uHrmfxOgoCO/Z8CXPlEQ1bdH8wgvhSIkEG0ICcQeExIFGdimjvKka7btJFZuaXOammIGKUCFQ53j9EN1dYKWqHf0t2w407W2tgs6h89ZnImjB55flh81tt9XirjjDuSl+oIPRQ0iWPgNZ5GqTqbBe3vSzEl5n5PhWKwocyR2HlqYN61qV18WjYjE8JLARZPQsUSim8foIRYTlGr02Ly7piASFRtKJ4VfieYhxdS2JcDVMN6xVOKZyrCGm8b108lrLRVzvptLH7IoEFLFANes6KnDi+uxfmvFnF17oALq5u1agu3/YfHkcSFzeSggV5eXRfIB7CHNcO5SUI+Ih5Ir7f4MAV9IqdFzdZgNpZw1Gcs1mNvgGbTbqQ9/cz7ZuuhgyYRQ49ljTyWHhr2DwpNHHFf+5gnWZ3Bharo+0TD5dNMw5vv9RlVpSRDHK4TlnoukhtYApuOHejSZQuo5g/A9BysdKRCyLl6062fN37OXMDlvUJtUrtmxo0avrW3wTrYs3jJ9RvRVChrmSmanPMpX2OXMsmDGh6AiEIwBAlvkOqIdBy+8JyAz8pz7QxiDth4KDy5uAlwzrWTnwC8Vc4KVAMZ3YUZ+IqoIjP3h5KFFX1ZMy3uW+7RhEDHgTi0zC9rS7uhPCDiNrGFyqBeERtKN/B0YlyFCkw0NJ5C0Ojv7zvT1a1WV1TuvZDdL4NTgB7CASYpsen6gqvG5jmTf5qHedADgkBl3D0nkSgNhZACDyi0FUKZRr3IdRjgN4WPPoFMIIegIK3mqd38fS80mcJKelM4szNyzZtQbkchGePuBRS8Eg9pHU8ojRQpSqs+ajAIwTjjUMQ/nvTNM0kicwYxZIYMh/891DYi+fvedB+c1xsm4lDU6ya+Axtz+RiAzEVYbajQOpq17F0R9QevNcEhfcU+xvyQQUalGJBSesqOkgPQ4YNyUZL9fSvUPDjoNAwN8/dwFjaczNkc3ptaMud1EIDtGcmXTcefO2cGSvKIFfp/2JIJxlq7xEl3nVPM4fDeIbPkD16/ptNc0bDu7qxbsu0R2JGywWMIjF2ft3tjfloAyQAGXiOn8hrqwbVvMXzaO+QeHXP6nF0wvX74Hf4NGG5GPjSlYoyM3P/0FbCT6zvM/yYoAAAAASUVORK5CYII=" role="presentation" style="pointer-events: none;" width="16" height="16"></div> <div class="toggle-track-x"><img src="data:image/png;base64,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" role="presentation" style="pointer-events: none;" width="16" height="16"></div></div> <div class="toggle-thumb"></div></div> <input type="checkbox" aria-label="Switch between Dark and Default theme" class="toggler-screen-reader-only"></div></div>
@@ -1587,7 +1588,7 @@ margin-left: 0 !important;
       <p class="authors">
            <span class="glyphicon glyphicon-user"></span> Austin Hart
       </p>
-         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-03-28</p>
+         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-03-29</p>
            
 
    
@@ -1595,15 +1596,18 @@ margin-left: 0 !important;
    
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div class="page-content has-page-title">
-<p>I taught myself <code>R Markdown</code> because I needed a better tool for creating presentations. I was sick of using <code>R</code> for my data work and a separate software (and programming language) for creating simple slide decks. The endless churn of exporting, moving, and changing visualizations was awful. So I started creating <code>ioslides</code>, <code>beamer</code>, and <code>xaringan</code> presentations in <code>R Markdown</code> instead.</p>
-<p>The <code>Markdown</code> world is perfect for the data analyst who has something to say (and who uses lots of visualizations to say it). It lets you put analysis and presentation in the same workflow. It makes the work of updating, tweaking, and scaling your work a snap.</p>
-<p>What I offer here is a very simple intro to a few styles of presentations. There’s so much more out there. <a href="https://bookdown.org/yihui/rmarkdown/">Yihui Xie’s markdown book</a> is an excellent starter kit.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
-<div id="ioslides-presentations" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> ioslides presentations</h1>
-<p><code>ioslides</code> offers the simplest space for creating presentations. Simply specify <code>ioslides_presentation</code> output in the document <code>YAML</code>. Then define your <code>setup</code> chunk, and proceed to creating your slides.</p>
-<div id="yaml-options" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> YAML options</h2>
-<p>The YAML metadata requires that you specify the output type. Here we specify <code>ioslides_presentation</code>. This will create an <code>html</code> document containing your presentation. I also specify widescreen as baseline.</p>
+<div id="why-bother-with-markdown" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Why bother with Markdown?</h1>
+<p>I taught myself <code>R Markdown</code> because I needed a better tool for creating presentations. I was sick of using <code>R</code> for my data work and a separate software and programming language for creating slides. The endless churn of exporting, moving, and changing visualizations was awful. So I started creating <code>ioslides</code>, <code>beamer</code>, and <code>xaringan</code> presentations in <code>R Markdown</code> instead.</p>
+<p>The <code>Markdown</code> world is perfect for the data analyst who has something to say. It lets you pull analysis and presentation into a single workflow, and it makes the task of updating, tweaking, and scaling your work a snap.</p>
+<p>What I offer here is a very simple intro to two styles of presentation. There’s so much more out there. <a href="https://bookdown.org/yihui/rmarkdown/">Yihui Xie’s markdown book</a> is an excellent starter kit.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="ioslides-presentations" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> ioslides presentations</h1>
+<p><code>ioslides</code> offers the simplest space for creating presentations. Just specify <code>ioslides_presentation</code> output in the document <code>YAML</code>. Then define your <code>setup</code> chunk, and proceed to creating your slides.</p>
+<div id="yaml-options" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> YAML options</h2>
+<p>The YAML metadata requires that you specify the output type. Here we have to say that we want slides: <code>ioslides_presentation</code>. This will knit to an <code>html</code> document containing your presentation. Note that I also specify widescreen as the baseline.</p>
 <pre class="yaml"><code>---
 title: &quot;Presentations&quot;
 author: John Doe
@@ -1611,18 +1615,18 @@ date: 28 March 2023
 output: 
   ioslides_presentation:
     widescreen: true
-    smaller: true
 ---</code></pre>
 </div>
-<div id="setup-chunk" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Setup chunk</h2>
-<p>Your ‘setup’ chunk is critical in every markdown document. This is where you specify how other code chunks should be handled and set parameters for building your presentation. For slide decks, it’s important to set rules about visuals (size, resolution, graphics device, etc).</p>
+<div id="setup-chunk" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Setup chunk</h2>
+<p>Your ‘setup’ chunk is critical in every markdown document. This is where you specify what you want to happen with your code chunks when you <code>knit</code> the document. Of special importance for presentations, this is also a chance to set parameters for the visuals you create (size, resolution, graphics device, etc).</p>
 <pre class="r"><code>```{r setup, include=F}
 # Global options
   knitr::opts_chunk$set(
     echo = F, message = F, warning = F,
     fig.width = 4, fig.asp = 0.618, 
-    fig.align = &#39;center&#39;, out.width = &quot;60%&quot;
+    fig.align = &#39;center&#39;, dev=&#39;png&#39;,
+    out.width = &quot;60%&quot;
   )
 
 # Packages
@@ -1630,33 +1634,33 @@ output:
   library(kableExtra)
 ```</code></pre>
 </div>
-<div id="slide-basics" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Slide basics</h2>
-<p>The slide is the key “unit” of a presentation. In <code>ioslides</code>, level-1 headers, <code>#</code> become new sections and <code>##</code> become new content slides.</p>
+<div id="slide-basics" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Slide basics</h2>
+<p>The slide is the key “unit” of a presentation. In <code>ioslides</code>, level-1 headers, marked by <code>#</code>, become new section slides and <code>##</code> become new content slides.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 <pre class="r"><code>&lt;!-- Basic slide structure --&gt;
 
-# Title, first section
+# Slide for first section
 
-## Title of content slide
+## Separate content slide
 
 &gt; A block quote. It&#39;s kind of like my motto.
 
 - Starting a list  
 - So many lists
 
-## Second slide title
+## Another content slide 
+### subtitle on the same slide
 
-### subtitle for emphasis
 1. First step  
 
 2. Second step</code></pre>
 </div>
 </div>
-<div id="xaringan-presentations" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> xaringan presentations</h1>
-<p>I prefer <code>xaringan</code> for my presentations. <code>ioslides</code> is definitely quick and easy, but the formatting options are limited. <code>xaringan</code> has so many options for both the deck as a whole and individual slides.</p>
-<div id="xaringan-yaml" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> xaringan YAML</h2>
+<div id="xaringan-presentations" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> xaringan presentations</h1>
+<p>I prefer <code>xaringan</code> for my presentations. <code>ioslides</code> is quick and easy, but the formatting options are very limited. <code>xaringan</code> has so many options for both the deck as a whole and individual slides.</p>
+<div id="xaringan-yaml" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> xaringan YAML</h2>
 <p>So many options here. Consider:</p>
 <pre class="yaml"><code>---
 title: &quot;xaringan basics&quot;
@@ -1672,13 +1676,14 @@ output:
       ratio: &quot;16:9&quot;
 ---</code></pre>
 <p>I set the <code>libs</code> option so that my formatting files (related to the <code>css</code>options) don’t clutter my directory.</p>
+<p>Note that <code>xaringan</code> comes with loads of native <code>css</code> style options. The chunk above uses <code>rladies</code> theme and fonts. Explore the options to see what suits you.</p>
 </div>
-<div id="xaringan-slides" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> xaringan slides</h2>
-<p>With <code>xaringan</code>, use three dashes, <code>---</code>, to create new slides and <code>#</code> for slide titles. Note that slides also have classes to choose from.</p>
+<div id="xaringan-slides" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> xaringan slides</h2>
+<p>With <code>xaringan</code>, use three dashes, <code>---</code>, to create new slides of any type. Note that slides also have classes to choose from. You can change light vs dark theme (inverse), vertical alignment (top, middle, bottom), and horizontal alignment (left, center, right).</p>
 <pre class="r"><code>&lt;!-- Xaringan structure after setup --&gt;
 
-# Title, first section
+## First slide doesn&#39;t need the `---`
 
 - topics covered
 - things you&#39;ll like
@@ -1690,7 +1695,7 @@ class: inverse, middle, right
 ### mess with the options
 
 ---
-# Slide title
+## Title of my new slide
 
 .pull-left[
 ### pulled left
@@ -1720,19 +1725,20 @@ to guide you through a single point.
 ]</code></pre>
 </div>
 </div>
-<div id="other-markdown-stuff" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Other markdown stuff</h1>
+<div id="other-markdown-stuff" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Other markdown stuff</h1>
 <p>A few quick reminders about <code>markdown</code> based on questions from the past week:</p>
 <ul>
 <li><p><em>Unique code chunk names</em>. You don’t have to name your code chunks. If you do, they all need different names.</p></li>
 <li><p><em>Default working directory</em>. The folder containing your <code>.Rmd</code> file is your default directory when you <code>knit</code>. If your data and other materials are in the same spot, no need to <code>setwd</code>.</p></li>
-<li><p><em>Knitr effectively runs its own R session</em>. Even if you attach <code>haven</code>, for example, in your console, it won’t be there when you <code>knit</code> a markdown document. I recommend loading these packages (and importing data) in your setup chunk.</p></li>
+<li><p><em><code>knitr</code> effectively runs its own R session</em>. Even if you attach <code>haven</code> in your console, for example, it won’t be active when you <code>knit</code> a markdown document. I recommend loading these packages (and importing data) either in your setup chunk or in an invisible chunk immediately after it.</p></li>
 </ul>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p>See especially Chapters 4, 7, and 9.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Note that only <code>#</code> and <code>##</code> headers initiate new slides. <code>###</code> headers and beyond just show up as text within a slide.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 </div>
