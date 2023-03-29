@@ -12,7 +12,8 @@ Our Markdown journey continues as we look at how to create slide decks for prese
 - *Make sure you have access to your Presentation 1 materials.* We'll work on rebuilding those presentations in markdown.
 
 ## Examples for our consideration
-- `downcuteEX.html` shows the `downcute` document and serves as a nice bridge from last week to this week
+- `downcuteEX.html` shows the `downcute` document 
+- `intro markdown slides.Rmd` is a guide to markdown presentations written as a `downcute` document. It serves as a nice bridge from last week to this week. The [webpage it produces](https://sis-data-analysis.github.io/10-markdown-slides/) is hosted through our github.
 - `xaringanINFO.html` shows the `xaringan` format
 - See [my book presentation repository](https://github.com/austin-hart-pols/qualitycontrol) for a customized `xaringan` example.
 
